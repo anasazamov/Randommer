@@ -15,7 +15,8 @@ class Text(Randommer):
         Returns:
             str: Lorem text
         '''
-        pass
+        h={"X-Api-Key":api_key}
+        return requests.get(self.base_url,headers=h).json()
     
     def generate_password(self, api_key: str, length: int, hasDigits: bool, hasUppercase: bool, hasSpecial: bool) -> str:
         '''Generate lorem ipsum
@@ -31,3 +32,8 @@ class Text(Randommer):
             str: pasword
         '''
         pass
+text=Text()
+
+from pprint import pprint
+
+print(text.generate_LoremIpsum(api_key="48db25ad935a4a5c82c72db9260b214f",number=456,type="656"))

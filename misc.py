@@ -12,7 +12,10 @@ class Misc(Randommer):
         Returns:
             list: list of cultures
         '''
-        pass
+        url=self.base_url+"Misc/Cultures"
+        a={"X-Api-Key":api_key}
+        response=requests.get(url,headers=a).json()
+        return response
     
     def get_random_address(self, api_key: str, number: int, culture='en') -> list:
         '''get available misc cultures
@@ -25,4 +28,10 @@ class Misc(Randommer):
         Returns:
             list: random address
         '''
-        pass
+        url=self.base_url+"Misc/Cultures"
+        a={"X-Api-Key":api_key}
+        p={"culture":culture,
+           "number":number
+           }
+        response=requests.get(url,params=p,headers=a).json()
+        return response
